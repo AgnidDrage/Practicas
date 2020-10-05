@@ -8,6 +8,6 @@ with sr.Microphone() as source:
 
     try:
         text = r.recognize_google(audio)
-        print("What did you said: {}".format(text))
+        print("You said: {}".format(text))
     except:
         print("I didn't understand you")
