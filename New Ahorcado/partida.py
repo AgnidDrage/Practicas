@@ -4,7 +4,7 @@ class Partida():
         self.intentos = intentos
         self.tipo_palabra = tipo_palabra
         self.nombre_jugador = nombre_jugador
-        self.palabra_acierto = palabra_aciertos
+        self.palabra_aciertos = palabra_aciertos
 
     @property
     def palabra (self):
@@ -12,7 +12,7 @@ class Partida():
 
     @palabra.setter
     def palabra (self, palabra):
-        if palabra is None:
+        if not palabra:
             raise ValueError("La palabra no puede ser vacia.")
         else:
             self._palabra = list(palabra.upper())
@@ -34,21 +34,20 @@ class Partida():
 
     @tipo_palabra.setter
     def tipo_palabra(self, tipo_palabra):
-        if tipo_palabra is None:
+        if tipo_palabra is None or len(tipo_palabra) == 0:
             raise ValueError("El tipo de palabra no puede ser vacio.")
         else:
-            self._tipo_palabra = tipo_palabra
+            self._tipo_palabra = tipo_palabra.upper()
 
     @property
     def nombre_jugador(self):
         return self._nombre_jugador
-
     @nombre_jugador.setter
     def nombre_jugador(self, nombre_jugador):
-        if nombre_jugador is None:
+        if nombre_jugador is None or len(nombre_jugador) == 0:
             raise ValueError("El nombre del jugador no puede ser vacio.")
         else:
-            self._nombre_jugador = nombre_jugador
+            self._nombre_jugador = nombre_jugador.upper()
 
     @property
     def palabra_aciertos(self):
